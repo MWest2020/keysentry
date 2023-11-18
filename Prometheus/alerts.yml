@@ -1,11 +1,11 @@
 groups:
-- name: NightTImeTraffic
+- name: HighTraffic
   rules:
-  - alert: HighRequestRate
-    expr: rate(http_requests_total[10m]) > 666
-    for: 1m
+  - alert: HighTraffic
+    expr: rate(http_requests_total[1m]) > 10
+    for: 5m
     labels:
-      severity: page
+      severity: critical
     annotations:
       summary: High traffic detected
-      description: Traffic has increased significantly in the last hour during night-time.
+      description: This alert fires to confirm the settings of the test
