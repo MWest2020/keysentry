@@ -3,9 +3,9 @@ groups:
   rules:
   - alert: HighRequestRate
     expr: rate(http_requests_total[10m]) > 666
-    for: 10m
+    for: 1m
     labels:
       severity: page
     annotations:
-      summary: High traffic detected during night-time hours
+      summary: High traffic detected
       description: Traffic has increased significantly in the last hour during night-time.
