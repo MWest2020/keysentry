@@ -2,7 +2,7 @@
 
 for i in {1..1000}
 do 
-  curl http://188.166.74.81
+  curl {{secrets.TARGET_SERVER}}
   echo "Request $i sent"
-  sleep 1
+  
 done
