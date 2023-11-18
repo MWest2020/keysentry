@@ -6,7 +6,7 @@ This repository contains a JMeter test plan designed to simulate a significant i
 
 ## Test Plan Description
 
-The JMeter test plan (`testplan.jmx`) is configured to create a large number of requests to the target server, simulating numerous users accessing the server simultaneously. This plan is particularly focused on simulating traffic at an unusual time (5 AM), which can be critical for identifying vulnerabilities or inefficiencies in server configurations and monitoring systems.
+The JMeter test plan (`testplan.jmx`) is configured to create a large number of requests to the target server, simulating numerous users,  or an attack, accessing the server simultaneously. This plan is particularly focused on simulating traffic at an unusual time (5 AM), which can be critical for identifying vulnerabilities or inefficiencies in server configurations and monitoring systems.
 
 ## Execution via GitHub Actions
 
