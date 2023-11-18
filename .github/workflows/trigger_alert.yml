@@ -6,7 +6,9 @@ on:
 jobs:
   trigger-alert:
     runs-on: ubuntu-latest
-
+    env:
+          TARGET_SERVER: ${{ secrets.TARGET_SERVER }}  # Using secret variable
+          
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
