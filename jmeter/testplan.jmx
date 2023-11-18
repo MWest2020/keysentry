@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan>
+      <ThreadGroup>
+        <stringProp name="ThreadGroup.num_threads">100</stringProp> <!-- Number of threads (users) -->
+        <stringProp name="ThreadGroup.ramp_time">10</stringProp> <!-- Ramp-up period -->
+        <stringProp name="ThreadGroup.duration">60</stringProp> <!-- Test duration in seconds -->
+        <hashTree>
+          <HTTPSamplerProxy>
+            <stringProp name="HTTPSampler.domain">188.166.74.81</stringProp> <!-- Your server IP -->
+            <stringProp name="HTTPSampler.port">80</stringProp> <!-- Server port, change if different -->
+            <stringProp name="HTTPSampler.path">/</stringProp> <!-- Path to resource -->
+            <!-- Add more properties as needed -->
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+      </ThreadGroup>
+      <ResultCollector>
+        <!-- Configuration for result logging -->
+      </ResultCollector>
+    </TestPlan>
+  </hashTree>
+</jmeterTestPlan>
