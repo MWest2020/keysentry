@@ -1,9 +1,9 @@
 #!/bin/bash
+server_ip=$TARGET_SERVER
 
-for i in {1..1000}
-do 
-  curl ${{secrets.TARGET_SERVER}}
-  echo "Request $i sent"
-  sleep 0.25
-  
+
+for ((i=1;i<=1000;i++)); do
+  curl http://$server_ip
+  # Optional: add a sleep command here if needed
 done
+
