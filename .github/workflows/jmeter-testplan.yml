@@ -25,4 +25,4 @@ jobs:
       run: |
         wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.tgz
         tar -xzf apache-jmeter-5.4.1.tgz
-        ./apache-jmeter-5.4.1/bin/jmeter -n -t ../../testplan.jmx -Jtarget_server=$TARGET_SERVER -l ./results.jtl
+        ./apache-jmeter-5.4.1/bin/jmeter -n -t ../../jmeter/testplan.jmx -Jtarget_server=$TARGET_SERVER -l ./results.jtl
