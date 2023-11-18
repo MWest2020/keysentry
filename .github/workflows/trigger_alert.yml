@@ -11,7 +11,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-     - name: Make script executable
+    - name: Make script executable
       run: chmod +x ./trigger_alert.sh
 
     - name: Run script
