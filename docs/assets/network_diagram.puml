@@ -1,0 +1,32 @@
+@startuml
+!define RECTANGLE class
+
+RECTANGLE Droplet {
+  + Digital Ocean Cloud
+  + IP: 188.166.74.81
+}
+
+RECTANGLE Prometheus {
+  + Monitoring Service
+  + Port: 9090
+}
+
+RECTANGLE AlertManager {
+  + Alert Management
+  + Port: 9093
+}
+
+RECTANGLE EmailService {
+  + Email Notification System
+}
+
+RECTANGLE Threat {
+  + Threat
+  + IP: 192.168.0.100
+}
+
+Threat -down-> Droplet : SSH Connection
+Droplet -right-> Prometheus : Metrics Collection
+Prometheus -down-> AlertManager : Alert Triggering
+AlertManager -left-> EmailService : Sends Notifications
+@enduml

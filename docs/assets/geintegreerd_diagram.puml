@@ -1,0 +1,31 @@
+@startuml
+actor Gebruiker
+participant "GitHub Acties" as GH
+participant "Test Script" as TS
+database "Prometheus Server" as PS
+participant "Alertmanager" as AM
+participant "E-mail Systeem" as ES
+database "Monitoring Database" as MD
+participant "Analyze en Response Script" as AR
+
+Gebruiker -> GH: Trigger Workflow
+activate GH
+GH -> TS: Start Test Script
+activate TS
+TS -> PS: Stuur Metrics
+activate PS
+PS -> MD: Sla Metrics op
+PS -> PS: Evalueer Verkeer
+PS -> AM: Verzend Alert
+activate AM
+AM -> ES: Stuur Notificatie
+activate ES
+ES -> Gebruiker: Ontvang Notificatie
+deactivate ES
+deactivate AM
+TS -> AR: Genereer Rapport
+AR -> Gebruiker: Stuur Analyseresultaat
+deactivate PS
+deactivate TS
+deactivate GH
+@enduml

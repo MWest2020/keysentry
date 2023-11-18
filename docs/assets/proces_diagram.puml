@@ -1,0 +1,42 @@
+@startuml
+!define RECTANGLE class
+
+RECTANGLE "GitHub Repository" {
+  +Workflow Configuraties
+}
+
+RECTANGLE "GitHub Acties" {
+  +Cron Job / Handmatige Trigger
+  +Uitvoeren Test Script
+}
+
+RECTANGLE "Test Script" {
+  +Genereren Netwerkverkeer
+}
+
+RECTANGLE "Digitale Infrastructuur" {
+  +Host Server/Applicaties
+}
+
+RECTANGLE "Prometheus Server" {
+  +Verkeersmonitoring
+  +Alert Regel Evaluatie
+}
+
+RECTANGLE "Alertmanager" {
+  +Alert Ontvangst
+  +Notificatiebeheer
+}
+
+RECTANGLE "E-mail Systeem" {
+  +Verzend Notificaties
+}
+
+"GitHub Repository" -right-> "GitHub Acties" : Triggert
+"GitHub Acties" -right-> "Test Script" : Voert Uit
+"Test Script" -down-> "Digitale Infrastructuur" : Simuleert Verkeer
+"Digitale Infrastructuur" -right-> "Prometheus Server" : Verzamelt Metrics
+"Prometheus Server" -right-> "Alertmanager" : Verstuurt Alerts
+"Alertmanager" -right-> "E-mail Systeem" : Verstuurt Notificaties
+
+@enduml
