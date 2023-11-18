@@ -2,8 +2,7 @@ name: JMeter Load Test
 
 on:
   schedule:
-    # Schedule to run at 5 AM UTC
-    - cron: '0 5 * * *'
+    - cron: '0 5 * * *'  # Runs daily at 5 AM UTC
 
 jobs:
   loadTest:
@@ -20,7 +19,9 @@ jobs:
         distribution: 'adopt'
 
     - name: Run JMeter test
+      env:
+        TARGET_SERVER: ${{ secrets.TARGET_SERVER }}  # Using secret variable
       run: |
         wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.tgz
         tar -xzf apache-jmeter-5.4.1.tgz
-        ./apache-jmeter-5.4.1/bin/jmeter -n -t ./path/to/your/testplan.jmx -l ./results.jtl
+        ./apache-jmeter-5.4.1/bin/jmeter -n -t ./path/to/your/testplan.jmx -Jtarget_server=$TARGET_SERVER -l ./results.jtl
